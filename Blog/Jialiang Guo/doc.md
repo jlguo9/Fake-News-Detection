@@ -6,3 +6,6 @@ You may have already mastered some of those modern technologies, so that you mig
 [image: learn new things from lovethispic.com]
 
 Well, it's true that sed and awk are old -- they're already in their 40s -- but that doesn't mean they're outdated. In some ways they still perform better than other tools:
+
+### 1.	They Are Pre-Installed in Unix and Unix-Like Systems
+Have you ever been in a situation where your lab has just bought a new workstation, or your company's IT support team has just updated the workstation and reinstalled system, or you are simply using someone else’s device, and you need to process a batch of data before the environment and software being configured? It can be a dilemma when your task is urgent or you don’t want to waste time configuring or waiting for the IT Technician to configure the environment. But don’t worry, all the command line tools mentioned above are typically pre-installed on Unix-based systems, and you don’t need to install any extra packages like what you do for Python.
