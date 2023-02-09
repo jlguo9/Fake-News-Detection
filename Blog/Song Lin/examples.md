@@ -87,10 +87,16 @@ You may think that for a newly built house, it tends to have a higher price than
 ### 	locate the colums you what to use the filter
 	head -2 property-tax-report-2.csv|awk -F';' '{print$(NF-4),$14}'
 ![](carbon-3.png)
+
+### check the distribution of the buildings number by year
+	cat property-tax-report-2.csv|awk -F';' '{print$(NF-4)}'|sort|uniq -c|sort -nr
+![](carbon-5.png)
+
 ### make the filter
 	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
 ![](carbon-4.png)
 seems it works!
 ### output the result to a file
 	cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'>property-tax-report-filter.csv
+Just remember to add the head back after this. 
 
