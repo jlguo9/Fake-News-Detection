@@ -22,3 +22,10 @@ with open(“input_path”, “r”) as f_input, open(“output_path”, “w”
     for line in f_input:
         f_output.write(line.split(“,”)[0] + “\n”)
 ~~~
+
+### 3.	They Run Fast
+[image: fast from imgflip]
+
+Sed and awk are not as extensible as modern languages like Python and Perl, and thus can be used for a narrower range of purposes than the latter; however, it is because of such a concentration that they can avoid any features irrelevant to text processing, keep lightweight, and get an well-optimized interpreter, so that for tasks within their capability they are normally faster than high-level programming languages, not to mention other GUI software.
+
+Another reason why they're fast is that sed uses a simple model of regular expression and awk compiles regular expression into state machine. The former makes it extremely fast for sed to process simple text processing tasks, while the latter helps awk with quickly determining if a line of text matches a complex pattern even for large amounts of text data. 
