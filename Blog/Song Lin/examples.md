@@ -73,3 +73,24 @@ Examples:
 #            The "|" (pipe) symbol
 The "|" (pipe) symbol is a command used in Linux to direct the output of one command to another. It allows you to take the output of one command and use it as the input to another command. 
 For example, you could use the "ls" command to list the contents of a directory, and then pipe the output of that command to the "grep" command to search for a specific file.
+
+# Now let us get our hands dirty 
+Imagine you are a data scientist working at a real-estate company. You download a property_tax_report from this webpage. The dataset contains information on properties from BC Assessment (BCA) and City sources in 2021.
+
+You may think that for a newly built house, it tends to have a higher price than the ones built decades ago. In this assignment, your first job is to figure out whether YEAR_BUILT and HOUSE_PRICE are correlated.
+
+## First glance of the data
+
+	head -2 property-tax-report-2.csv
+![](carbon.png)
+	Since the housing price varies a lot by locations, we will only consider the houses whose postcode starts with 'V6A'. Furthermore, we remove the houses that were built before 1900.
+### 	locate the colums you what to use the filter
+	head -2 property-tax-report-2.csv|awk -F';' '{print$(NF-4),$14}'
+![](carbon-3.png)
+### make the filter
+	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
+![](carbon-4.png)
+seems it works!
+### output the result to a file
+	cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'>property-tax-report-filter.csv
+
