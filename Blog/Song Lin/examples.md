@@ -70,3 +70,6 @@ Examples:
      creating a backup of the file:
 
            sed -i '' -e 's/foo/bar/g' test.txt
+#            The "|" (pipe) symbol
+The "|" (pipe) symbol is a command used in Linux to direct the output of one command to another. It allows you to take the output of one command and use it as the input to another command. 
+For example, you could use the "ls" command to list the contents of a directory, and then pipe the output of that command to the "grep" command to search for a specific file.
