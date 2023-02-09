@@ -23,6 +23,8 @@ with open(“input_path”, “r”) as f_input, open(“output_path”, “w”
         f_output.write(line.split(“,”)[0] + “\n”)
 ~~~
 
+The awk code here costs less effort to write and is more human-readible than the Python implementation. This is a simplest case and for more complex tasks the difference can be even larger.
+
 ### 3.	They Run Fast
 <img src="img/fast.jpg" width=300>
 
