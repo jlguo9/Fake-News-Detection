@@ -18,9 +18,9 @@ The syntax of sed and awk is designed to be concise, allowing people to accompli
 And its equivalent Python implementation:
 
 ~~~python
-with open(“input_path”, “r”) as f_input, open(“output_path”, “w”) as f_output:
+with open('input_path', 'r') as f_input, open('output_path', 'w') as f_output:
     for line in f_input:
-        f_output.write(line.split(“,”)[0] + “\n”)
+        f_output.write(line.split(',')[0] + '\n')
 ~~~
 
 The awk code here costs less effort to write and is more human-readible than the Python implementation. This is a simplest case and for more complex tasks the difference can be even larger.
@@ -33,6 +33,6 @@ Sed and awk are not as extensible as modern languages like Python and Perl, and 
 Another reason why they're fast is that sed uses a simple model of regular expression and awk compiles regular expression into state machine. The former makes it extremely fast for sed to process simple text processing tasks, while the latter helps awk with quickly determining if a line of text matches a complex pattern even for large amounts of text data. 
 
 ### 4.	They Are Mouse-Free
-This one depends on personal habits. Some programmers like GUI and mouses because they make our life easier, while some other prefer using keyboard only because mouse sometimes interrupt their flow of thoughts and short cuts is usually faster than mouse clicking.
+This one depends on personal habits. Some programmers like GUI and mouses because they make our life easier, while some others prefer using keyboard only because mouse sometimes interrupt their flow of thoughts and short cuts is usually faster than mouse clicking.
 
 If you are a keyboard lover, then sed and awk is perfect for you: it’s purely text- and keyboard-based with no need to move or click a mouse.
