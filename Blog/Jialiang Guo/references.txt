@@ -1,0 +1,1 @@
+Awk: The Power and Promise of a 40-Year-Old Language, Andy Oram, Fosslife, May 2021. Retrived at: https://www.fosslife.org/awk-power-and-promise-40-year-old-language
