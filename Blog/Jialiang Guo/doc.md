@@ -3,7 +3,7 @@ Nowadays there are so many tools that can help us with data preparation, such as
 and some even with Graphic User Interface like Microsoft Excel, Jupyter Notebook, Tableau Prep, etc. 
 You may have already mastered some of those modern technologies, so that you might ask: “Why should I learn some old-fashioned command line languages, given that learning something new can be such a painful process?”
 
-<img src="img/learn_new_things.jpg" width=300 title="source: lovethispic.com">
+<img src="img/learn_new_things.jpg" width=300>
 
 Well, it's true that sed and awk are old -- they're already in their 40s -- but that doesn't mean they're outdated. In some ways they still perform better than other tools:
 
@@ -24,7 +24,7 @@ with open(“input_path”, “r”) as f_input, open(“output_path”, “w”
 ~~~
 
 ### 3.	They Run Fast
-<img src="img/fast.jpg" width=300 title="source: https://imgflip.com/i/4l4wfv">
+<img src="img/fast.jpg" width=300>
 
 Sed and awk are not as extensible as modern languages like Python and Perl, and thus can be used for a narrower range of purposes than the latter; however, it is because of such a concentration that they can avoid any features irrelevant to text processing, keep lightweight, and get an well-optimized interpreter, so that for tasks within their capability they are normally faster than high-level programming languages, not to mention other GUI software.
 
