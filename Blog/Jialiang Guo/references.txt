@@ -1,1 +1,7 @@
-Awk: The Power and Promise of a 40-Year-Old Language, Andy Oram, Fosslife, May 2021. Retrived at: https://www.fosslife.org/awk-power-and-promise-40-year-old-language
+Awk: The Power and Promise of a 40-Year-Old Language, Andy Oram, Fosslife, May 2021. Retrived from: https://www.fosslife.org/awk-power-and-promise-40-year-old-language
+
+What are the differences between Perl, Python, AWK and sed? Retrived from: https://stackoverflow.com/questions/366980/what-are-the-differences-between-perl-python-awk-and-sed
+
+When To Use Sed Awk Over Perl Or Python, Retrived from: https://www.biostars.org/p/89661/
+
+Regular Expression Matching Can Be Simple And Fast, Russ Cox, January 2007. Retrived from: https://swtch.com/~rsc/regexp/regexp1.html
