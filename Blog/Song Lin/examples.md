@@ -1,5 +1,4 @@
 # grep = global regular expression print
-Grep is a command-line tool used for searching and filtering text-based data. It is used to quickly search through a file, or multiple files, for simple patterns and basic regular expressions (BREs). Grep can also be used to filter output from other commands, or to search for specific patterns within a file.
 
 Examples:
 
@@ -21,7 +20,6 @@ Find all occurrences of the pattern ‘patricia’ in a file:
         
         
 #  AWK
-AWK is a programming language, created by Aho, Weinberger & Kernighan, designed for text processing and typically used as a data extraction and reporting tool. It is a powerful command-line tool that allows users to parse text files and perform operations on the data contained within them. AWK can be used to search for patterns within a file, perform calculations on the data, and print out the results.
 
 Examples:
        
@@ -50,7 +48,6 @@ Examples:
             printf "\n"
             exit }
 # sed = stream editor
-Sed is a command-line tool used for editing text files. It can be used to search for and replace specific text patterns, insert or delete lines from a file, and more. Sed is commonly used for automated text processing, such as for batch editing of multiple files at once.
 
 Examples:
 
@@ -71,8 +68,11 @@ Examples:
 
            sed -i '' -e 's/foo/bar/g' test.txt
 #            The "|" (pipe) symbol
-The "|" (pipe) symbol is a command used in Linux to direct the output of one command to another. It allows you to take the output of one command and use it as the input to another command. 
-For example, you could use the "ls" command to list the contents of a directory, and then pipe the output of that command to the "grep" command to search for a specific file.
+a pipeline is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one.
+The standard shell syntax for anonymous pipes is to list multiple commands, separated by vertical bars ("pipes" in common Unix verbiage):
+	
+	command1 | command2 | command3
+
 
 # Now let us get our hands dirty 
 Imagine you are a data scientist working at a real-estate company. You download a property_tax_report from this webpage. The dataset contains information on properties from BC Assessment (BCA) and City sources in 2021.
