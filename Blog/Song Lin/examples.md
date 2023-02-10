@@ -77,24 +77,28 @@ For example, you could use the "ls" command to list the contents of a directory,
 # Now let us get our hands dirty 
 Imagine you are a data scientist working at a real-estate company. You download a property_tax_report from this webpage. The dataset contains information on properties from BC Assessment (BCA) and City sources in 2021.
 
-You may think that for a newly built house, it tends to have a higher price than the ones built decades ago. In this assignment, your first job is to figure out whether YEAR_BUILT and HOUSE_PRICE are correlated.
-
+You may think that for a newly built house, it tends to have a higher price than the ones built decades ago. 
+So let us clean the data for this idea.
 ## First glance of the data
 
 	head -2 property-tax-report-2.csv
+Here **head -2** means to print first 2 lines from the data file. With this we could see how the header and the data looks like. 
 ![](carbon.png)
 	Since the housing price varies a lot by locations, we will only consider the houses whose postcode starts with 'V6A'. Furthermore, we remove the houses that were built before 1900.
 ### 	locate the colums you what to use the filter
 	head -2 property-tax-report-2.csv|awk -F';' '{print$(NF-4),$14}'
+Here the **print$(NF-4),$14** means we only print the YEAR_BUILT and the PROPERTY_POSTAL_CODE columns.
 ![](carbon-3.png)
 
 ### check the top10 of the buildings number by year
 	cat property-tax-report-2.csv|awk -F';' '{print$(NF-4)}'|sort|uniq -c|sort -nr|head -10
+Here **sort|uniq -c|sort -nr** part means we sort the build year and then uniq count the year, so we could have the number of the buildings that build from each year. Then we sort the numbers again to show the top 10. 
 ![](carbon-7.png)
 
 ### make the filter
 	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
 ![](carbon-4.png)
+Here **$14 ~ /^V6A/** means column 14 start with V6A.
 you could also replace above with this:
 	  
 	head -10000 property-tax-report-2.csv|grep 'V6A'|awk -F';' '{print$14,$(NF-4)}'|head -5
