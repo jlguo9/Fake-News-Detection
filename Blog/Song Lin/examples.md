@@ -95,6 +95,12 @@ You may think that for a newly built house, it tends to have a higher price than
 ### make the filter
 	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
 ![](carbon-4.png)
+you could also replace above with this:
+	  
+	head -10000 property-tax-report-2.csv|grep 'V6A'|awk -F';' '{print$14,$(NF-4)}'|head -5
+
+
+![](carbon-10.png)
 seems it works!
 ### output the result to a file
 	cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'>property-tax-report-filter.csv
