@@ -88,9 +88,9 @@ You may think that for a newly built house, it tends to have a higher price than
 	head -2 property-tax-report-2.csv|awk -F';' '{print$(NF-4),$14}'
 ![](carbon-3.png)
 
-### check the distribution of the buildings number by year
-	cat property-tax-report-2.csv|awk -F';' '{print$(NF-4)}'|sort|uniq -c|sort -nr
-![](carbon-5.png)
+### check the top10 of the buildings number by year
+	cat property-tax-report-2.csv|awk -F';' '{print$(NF-4)}'|sort|uniq -c|sort -nr|head -10
+![](carbon-7.png)
 
 ### make the filter
 	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
@@ -98,5 +98,11 @@ You may think that for a newly built house, it tends to have a higher price than
 seems it works!
 ### output the result to a file
 	cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'>property-tax-report-filter.csv
-Just remember to add the head back after this. 
+Just remember the header will be removed after this.
 
+### last move
+We create a new column and value it as (CURRENT_LAND_VALUE+ CURRENT_IMPROVEMENT_VALUE)/1000000 then we could study the whether YEAR_BUILT and HOUSE_PRICE are correlated. 
+
+    head -2 property-tax-report-filter.csv|awk -F';' '{print$(NF-4),($20+$21)/1000000}'
+
+![](carbon-8.png)
