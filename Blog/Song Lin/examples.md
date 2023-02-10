@@ -87,10 +87,32 @@ You may think that for a newly built house, it tends to have a higher price than
 ### 	locate the colums you what to use the filter
 	head -2 property-tax-report-2.csv|awk -F';' '{print$(NF-4),$14}'
 ![](carbon-3.png)
+
+### check the top10 of the buildings number by year
+	cat property-tax-report-2.csv|awk -F';' '{print$(NF-4)}'|sort|uniq -c|sort -nr|head -10
+![](carbon-7.png)
+
 ### make the filter
 	head -10000 property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$14,$(NF-4)}'|head -5
 ![](carbon-4.png)
+you could also replace above with this:
+	  
+	head -10000 property-tax-report-2.csv|grep 'V6A'|awk -F';' '{print$14,$(NF-4)}'|head -5
+
+
+![](carbon-10.png)
 seems it works!
 ### output the result to a file
 	cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'>property-tax-report-filter.csv
+Just remember the header will be removed after this.
+To make it become a "real" comma-separated values file just add:
+    sed "s/;/,/g"
+    
+    cat property-tax-report-2.csv|awk -F';' '{if (($14 ~ /^V6A/)&&($(NF-4)>1900))print$0}'|sed "s/;/,/g">property-tax-report-filter.csv
 
+### last move
+We create a new column and value it as (CURRENT_LAND_VALUE+ CURRENT_IMPROVEMENT_VALUE)/1000000 then we could study the whether YEAR_BUILT and HOUSE_PRICE are correlated. 
+
+    head -2 property-tax-report-filter.csv|awk -F';' '{print$(NF-4),($20+$21)/1000000}'
+
+![](carbon-8.png)
