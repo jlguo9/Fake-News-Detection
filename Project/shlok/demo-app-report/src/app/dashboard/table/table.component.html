@@ -1,0 +1,233 @@
+<div class="container">
+  <app-navbar title="Live Demo"></app-navbar>
+
+  <div class="card">
+    <div class="card-header">
+      <i class="material-icons">assignment</i>
+    </div>
+    
+    <div class="card-content">
+      <h4 class="card-title">Enter Article Details</h4>
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field color="accent" class="long">
+              <input matInput type="text" placeholder="Title" [(ngModel)]="title" value="Ci" name="firstName">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6"> 
+            <mat-form-field color="accent" class="long">
+              <input matInput type="text" placeholder="Source" [(ngModel)]="sourceLink" value="Clia" name="lastName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <mat-checkbox [(ngModel)]="has_image" name="has_image">Have image</mat-checkbox>
+          </div>
+          <div class="col-md-6">
+              <mat-checkbox [(ngModel)]="has_video" name="has_video">Have Video</mat-checkbox>
+
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-4">
+            <mat-form-field color="accent">
+              <input matInput type="text" placeholder="City">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field color="accent">
+              <input matInput type="text" placeholder="Country">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field color="accent">
+              <input matInput type="text" placeholder="Postcode">
+            </mat-form-field>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-md-12">
+            <label class="textarea-label">Article Details/Description</label>
+            <br>
+            <mat-form-field color="accent" style="width: 100%;">
+              <textarea matInput rows="5" cols="40" placeholder="Enter Article Description/ Details to Evaluate"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row action-btn">
+          <button md-raised-button type="submit" class="btn btn-rose" (click)="evaluateArticle()">Evaluate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="card" *ngIf="showResults">
+    <div class="card-header">
+      <i class="material-icons">assignment</i>
+    </div>
+    
+    <div class="card-content">
+      <h4 class="card-title">Results</h4>
+
+      <div class="model-result-container" *ngFor="let result of results">
+        <div class="result-title">{{result.model}}</div>
+
+        <div class="progress-bar-container">
+          <div class="true-label">True: {{getTruthPercentage(result.fake)}}%</div>
+          <mat-progress-bar mode="determinate" value="{{getTruthPercentage(result.fake)}}"></mat-progress-bar>
+          <div class="false-label">False: {{getFakePercentage(result.fake)}}%</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="material-icons">assignment</i>
+        </div>
+        <div class="card-content">
+          <h4 class="card-title">Simple Table</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>First Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dakota Rice</td>
+                  <td>Niger</td>
+                  <td>Oud-Turnhout</td>
+                  <td class="text-primary">$36,738</td>
+                </tr>
+                <tr>
+                  <td>Minerva Hooper</td>
+                  <td>Curaçao</td>
+                  <td>Sinaai-Waas</td>
+                  <td class="text-primary">$23,789</td>
+                </tr>
+                <tr>
+                  <td>Sage Rodriguez</td>
+                  <td>Netherlands</td>
+                  <td>Baileux</td>
+                  <td class="text-primary">$56,142</td>
+                </tr>
+                <tr>
+                  <td>Philip Chaney</td>
+                  <td>Korea, South</td>
+                  <td>Overland Park</td>
+                  <td class="text-primary">$38,735</td>
+                </tr>
+                <tr>
+                  <td>Doris Greene</td>
+                  <td>Malawi</td>
+                  <td>Feldkirchen in Kärnten</td>
+                  <td class="text-primary">$63,542</td>
+                </tr>
+                <tr>
+                  <td>Mason Porter</td>
+                  <td>Chile</td>
+                  <td>Gloucester</td>
+                  <td class="text-primary">$78,615</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="material-icons">assignment</i>
+        </div>
+        <div class="card-content">
+          <h4 class="card-title">Striped Table</h4>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th></th>
+                <th>Product Name</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Amount</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1</td>
+                <td><mat-checkbox></mat-checkbox></td>
+                <td>Moleskine Agenda</td>
+                <td>Oud-Office</td>
+                <td>25</td>
+                <td class="text-right">€ 49</td>
+                <td class="text-right">€ 1,225</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><mat-checkbox></mat-checkbox></td>
+                <td>Stabilo Pen</td>
+                <td>Office</td>
+                <td>35</td>
+                <td class="text-right">€ 10</td>
+                <td class="text-right">€ 300</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><mat-checkbox></mat-checkbox></td>
+                <td>A4 Paper Pack</td>
+                <td>Office</td>
+                <td>50</td>
+                <td class="text-right">€ 599.00</td>
+                <td class="text-right">€ 109</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><mat-checkbox></mat-checkbox></td>
+                <td>Apple iPad</td>
+                <td>Meeting</td>
+                <td>20</td>
+                <td class="text-right">€ 10.99</td>
+                <td class="text-right">€ 4,999</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><mat-checkbox></mat-checkbox></td>
+                <td>Apple iPhone</td>
+                <td>Communication</td>
+                <td>10</td>
+                <td class="text-right">€ 499.00</td>
+                <td class="text-right">€ 5,999</td>
+              </tr>
+              <tr>
+                <td colspan="5"></td>
+                <td style="font-weight: 500; font-size: 1.25em;" class="text-right">Total</td>
+                <td style="font-size: 26px" class="text-right">€12,999</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
