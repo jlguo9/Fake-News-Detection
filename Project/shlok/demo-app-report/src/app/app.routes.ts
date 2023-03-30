@@ -18,15 +18,17 @@ import { LockComponent } from './page/lock/lock.component';
 import { RegisterComponent } from './page/register/register.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', redirectTo: 'dashboard',pathMatch: 'full'},
   {path: 'lock', component: LockComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
-  
+  // {path: 'about', component: ProfileComponent},
+
   {path: 'dashboard', component: RootComponent, children: [
-    {path: '', component: HomeComponent},
+    {path: '', redirectTo: 'about',pathMatch: 'full'},
     {path: 'analysis', component: ProfileComponent},
     {path: 'demo', component: TableComponent},
+    {path: 'about', component: ProfileComponent}
     // {path: 'profile', component: ProfileComponent},
     // {path: 'table', component: TableComponent},
     // {path: 'notification', component: NotificationComponent},
