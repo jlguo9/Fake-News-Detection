@@ -52,7 +52,7 @@
             <label class="textarea-label">Article Details/Description</label>
             <br>
             <mat-form-field color="accent" style="width: 100%;">
-              <textarea matInput rows="5" cols="40" placeholder="Enter Article Description/ Details to Evaluate"></textarea>
+              <textarea matInput rows="5" cols="40" name="description" [(ngModel)]="description" placeholder="Enter Article Description/ Details to Evaluate"></textarea>
             </mat-form-field>
           </div>
         </div>
@@ -80,6 +80,11 @@
           <div class="true-label">True: {{getTruthPercentage(result.fake)}}%</div>
           <mat-progress-bar mode="determinate" value="{{getTruthPercentage(result.fake)}}"></mat-progress-bar>
           <div class="false-label">False: {{getFakePercentage(result.fake)}}%</div>
+          <div class="feedback-container">
+            <i class="material-icons feedback-icons" (click)="feedback(result, true)">thumb_up</i>
+            <i class="material-icons feedback-icons" (click)="feedback(result, false)">thumb_down</i>
+          </div>
+          
         </div>
 
       </div>

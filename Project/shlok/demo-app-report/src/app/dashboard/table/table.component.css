@@ -21,6 +21,10 @@
   top: -23px;
 }
 
+.feedback-icons:hover{
+  cursor: pointer;
+}
+
 .card-header i {
   font-size: 24px;
   width: 33px;
