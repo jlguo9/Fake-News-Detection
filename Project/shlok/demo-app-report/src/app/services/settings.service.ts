@@ -11,7 +11,7 @@ export class SettingsService {
   public sidebarColorUpdate: EventEmitter<string> = new EventEmitter();
 
   // public backendUrl = "http://localhost:9090/"
-  public backendUrl = "http://35.208.233.163:9090/"
+  public backendUrl = "http://34.170.94.199:9090/"
 
 
   constructor(private http: HttpClient) { }
