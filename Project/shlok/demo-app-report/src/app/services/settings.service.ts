@@ -10,7 +10,9 @@ export class SettingsService {
   public sidebarColor = '#D80B0B';
   public sidebarColorUpdate: EventEmitter<string> = new EventEmitter();
 
-  public backendUrl = "http://localhost:9090/"
+  // public backendUrl = "http://localhost:9090/"
+  public backendUrl = "https://us-central1-final-project-380522.cloudfunctions.net/fakenews/"
+
 
   constructor(private http: HttpClient) { }
 
