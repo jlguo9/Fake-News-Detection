@@ -1,12 +1,29 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from project733 import *
 
 app = Flask(__name__)
+m1 = None
+m2= None
 CORS(app)
 
 
 def run_model(newsObj):
-    print(newsObj['title'])
+    r1 = m1(newsObj['description'])
+    r2 = m2(newsObj['description'])
+    return jsonify([
+        {
+        "modelId": 1,
+        "model":"Bert",
+        "fake": r1[1]
+        },
+        {
+        "modelId": 2,
+        "model":"GPT2",
+        "fake": r2[1]
+        }
+    ])
+    
 
 
 def feedback_to_model(newsObj):
@@ -20,29 +37,8 @@ def home():
 @app.route('/evaluate-model', methods=['GET', 'POST'])
 def evaluate_model():
     # if request.method == 'POST':
-    run_model(request.get_json(force=True))
-    return jsonify([
-        {
-        "modelId": 1,
-        "model":"Model 1",
-        "fake": 6
-        },
-        {
-        "modelId": 2,
-        "model":"Model 2",
-        "fake": 70
-        },
-        {
-        "modelId": 3,
-        "model":"Model 3",
-        "fake": 66
-        },
-        {
-        "modelId": 4,
-        "model":"Model 4",
-        "fake": 55
-        }
-    ])
+    return run_model(request.get_json(force=True))
+    
     
 
 @app.route('/feedback', methods=['POST'])
@@ -51,4 +47,6 @@ def feedback():
     return '',201
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9090)
+	m1, m2 = initializeModel()
+	app.run(host='0.0.0.0', port=9090)
+    
