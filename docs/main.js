@@ -1507,7 +1507,7 @@ var SettingsService = /** @class */ (function () {
         this.sidebarColor = '#D80B0B';
         this.sidebarColorUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         // public backendUrl = "http://localhost:9090/"
-        this.backendUrl = "https://us-central1-final-project-380522.cloudfunctions.net/fakenews/";
+        this.backendUrl = "http://35.208.233.163:9090/";
     }
     SettingsService.prototype.getSidebarImageIndex = function () {
         return this.sidebarImageIndex;
