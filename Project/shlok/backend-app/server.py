@@ -11,6 +11,7 @@ CORS(app)
 def run_model(newsObj):
     r1 = m1(newsObj['description'])
     r2 = m2(newsObj['description'])
+    r3 = m3(newsObj['description'])
     return jsonify([
         {
         "modelId": 1,
@@ -21,6 +22,11 @@ def run_model(newsObj):
         "modelId": 2,
         "model":"GPT2",
         "fake": r2[1]
+        },
+        {
+        "modelId": 3,
+        "model":"LSTM",
+        "fake": r3[1]
         }
     ])
     
@@ -47,6 +53,6 @@ def feedback():
     return '',201
 
 if __name__ == '__main__':
-	m1, m2 = initializeModel()
+	m1, m2, m3 = initializeModel()
 	app.run(host='0.0.0.0', port=9090)
     
