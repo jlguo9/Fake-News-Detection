@@ -122,12 +122,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_component_panels_panels_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/component/panels/panels.component */ "./src/app/dashboard/component/panels/panels.component.ts");
 /* harmony import */ var _services_settings_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/settings.service */ "./src/app/services/settings.service.ts");
 /* harmony import */ var _dashboard_component_wizard_wizard_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/component/wizard/wizard.component */ "./src/app/dashboard/component/wizard/wizard.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -197,7 +199,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatMenuModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatProgressBarModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatProgressBarModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"]
             ],
             providers: [_services_settings_service__WEBPACK_IMPORTED_MODULE_28__["SettingsService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -245,8 +248,8 @@ var routes = [
     // {path: 'about', component: ProfileComponent},
     { path: 'dashboard', component: _dashboard_root_root_component__WEBPACK_IMPORTED_MODULE_4__["RootComponent"], children: [
             { path: '', redirectTo: 'about', pathMatch: 'full' },
-            { path: 'analysis', component: _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__["ProfileComponent"] },
-            { path: 'demo', component: _dashboard_table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"] },
+            { path: 'analysis', component: _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__["ProfileComponent"], pathMatch: 'full' },
+            { path: 'demo', component: _dashboard_table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"], pathMatch: 'full' },
             { path: 'about', component: _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__["ProfileComponent"] }
             // {path: 'profile', component: ProfileComponent},
             // {path: 'table', component: TableComponent},
@@ -744,7 +747,7 @@ module.exports = ".right-profile{\n  display: flex;\n  flex-direction: column;\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <app-navbar title=\"About\"></app-navbar>\n  <div class=\"row\" style=\"margin-top: 30px\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">perm_identity</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">About this App\n          </h4>\n          <div class=\"text\">\n            This is the application for our final project Report and Demo for CMPT 733 Big Data Lab at SFU.\n          </div>\n\n          <div class=\"text\">\n            Repository Link: <a href=\"https://github.sfu.ca/sna101/3_datamen_CMPT_733\">https://github.sfu.ca/sna101/3_datamen_CMPT_733</a>\n          </div>\n\n          <div class=\"text\">\n            About our Project: <a href=\"dashboard/introduction\">Introduction</a>\n          </div>\n          <div class=\"text\">\n            Project Demo: <a href=\"dashboard/Demo\">Demo</a>\n          </div>\n          \n          <div class=\"text\">\n            Team Members:\n            <ul>\n              <li>Song Lin</li>\n              <li>Shlok Nangia</li>\n              <li>Jialiang Guo</li>\n            </ul> \n          </div>\n            \n        </div>\n      </div>\n    </div>\n    <!-- <div class=\"col-md-4\">\n      <div class=\"card right-profile\">\n        <div class=\"profile\">\n          <img src=\"../../../assets/img/marc.jpg\" alt=\"profile\"/>\n        </div>\n        <h6>CEO / CO-FOUNDER</h6>\n        <h4>{{ firstName }} {{ lastName }}</h4>\n        <p>Don't be scared of the truth because we need to restart the human foundation in truth And I love you like\n          Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>\n        <button mat-raised-button class=\"btn btn-rose btn-round\">CHANGE</button>\n      </div>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <app-navbar title=\"About\"></app-navbar>\n  <div class=\"row\" style=\"margin-top: 30px\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">perm_identity</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">About this App\n          </h4>\n          <div class=\"text\">\n            This is the application for our final project Report and Demo for CMPT 733 Big Data Lab at SFU.\n          </div>\n\n          <div class=\"text\">\n            Repository Link: <a href=\"https://github.sfu.ca/sna101/3_datamen_CMPT_733\">https://github.sfu.ca/sna101/3_datamen_CMPT_733</a>\n          </div>\n\n          <div class=\"text\">\n            About our Project: <a href=\"dashboard/introduction\">Introduction</a>\n          </div>\n          <div class=\"text\">\n            Project Demo: <a href=\"dashboard/demo\">Demo</a>\n          </div>\n          \n          <div class=\"text\">\n            Team Members:\n            <ul>\n              <li>Song Lin</li>\n              <li>Shlok Nangia</li>\n              <li>Jialiang Guo</li>\n            </ul> \n          </div>\n            \n        </div>\n      </div>\n    </div>\n    <!-- <div class=\"col-md-4\">\n      <div class=\"card right-profile\">\n        <div class=\"profile\">\n          <img src=\"../../../assets/img/marc.jpg\" alt=\"profile\"/>\n        </div>\n        <h6>CEO / CO-FOUNDER</h6>\n        <h4>{{ firstName }} {{ lastName }}</h4>\n        <p>Don't be scared of the truth because we need to restart the human foundation in truth And I love you like\n          Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>\n        <button mat-raised-button class=\"btn btn-rose btn-round\">CHANGE</button>\n      </div>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1144,7 +1147,7 @@ var SweetAlertComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".row{\n  margin-top: 10px;\n}\n\n.card{\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  position: relative;\n  margin-top: 40px;\n}\n\n.card-header {\n  position: absolute;\n  text-align: center;\n  background: linear-gradient(60deg, #ec407a, #d81b60);\n  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);\n  /*margin: -20px 15px 0;*/\n  border-radius: 3px;\n  padding: 15px;\n  top: -23px;\n}\n\n.card-header i {\n  font-size: 24px;\n  width: 33px;\n  height: 33px;\n  line-height: 33px;\n  color: #fff;\n}\n\n.card-content{\n  position: relative;\n}\n\n.card-title{\n  padding-left: 80px;\n}\n\n.mat-input-container{\n  width: 100%;\n}\n\n.category{\n  font-weight: 300;\n}\n\nform{\n  margin-top: 30px;\n}\n\n.row{\n  margin-top: 15px;\n}\n\n.mat-input-container textarea{\n  height: 90px;\n}\n\n.textarea-label{\n  color: #aaa;\n  margin-bottom: 10px;\n}\n\n.action-btn{\n  display: flex;\n  justify-content: flex-end;\n  padding-right: 15px;\n}\n\n.progress-bar-container{\n  display: flex;\n}\n\n.model-result-container{\n  margin: 30px 10px 30px 10px;\n}\n\n.mat-progress-bar{\n  height: 10px!important;\n  border-radius: 2px!important;\n  margin: auto;\n}\n\n.result-title{\n  font-weight: 400;\n}\n\n::ng-deep .mat-progress-bar-fill::after {\n  background-color: green;\n}\n\n::ng-deep .mat-progress-bar-buffer {\n  background: red;\n}\n\n::ng-deep .mat-progress-bar {\n  border-radius: 2px;\n}\n\n.long{\n  min-width: 300px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxjQUFjO0VBQ2QsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCxtQkFBbUI7RUFDbkIsaUJBQWlCO0NBQ2xCOztBQUVEO0VBQ0UsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQixxREFBcUQ7RUFDckQsdUZBQXVGO0VBQ3ZGLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsY0FBYztFQUNkLFdBQVc7Q0FDWjs7QUFFRDtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixZQUFZO0NBQ2I7O0FBRUQ7RUFDRSxtQkFBbUI7Q0FDcEI7O0FBRUQ7RUFDRSxtQkFBbUI7Q0FDcEI7O0FBR0Q7RUFDRSxZQUFZO0NBQ2I7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxhQUFhO0NBQ2Q7O0FBRUQ7RUFDRSxZQUFZO0VBQ1osb0JBQW9CO0NBQ3JCOztBQUVEO0VBQ0UsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixvQkFBb0I7Q0FDckI7O0FBRUQ7RUFDRSxjQUFjO0NBQ2Y7O0FBRUQ7RUFDRSw0QkFBNEI7Q0FDN0I7O0FBRUQ7RUFDRSx1QkFBdUI7RUFDdkIsNkJBQTZCO0VBQzdCLGFBQWE7Q0FDZDs7QUFFRDtFQUNFLGlCQUFpQjtDQUNsQjs7QUFFRDtFQUNFLHdCQUF3QjtDQUN6Qjs7QUFFRDtFQUNFLGdCQUFnQjtDQUNqQjs7QUFFRDtFQUNFLG1CQUFtQjtDQUNwQjs7QUFFRDtFQUNFLGlCQUFpQjtDQUNsQiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC90YWJsZS90YWJsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJvd3tcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmNhcmR7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIHBhZGRpbmc6IDIwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn1cblxuLmNhcmQtaGVhZGVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg2MGRlZywgI2VjNDA3YSwgI2Q4MWI2MCk7XG4gIGJveC1zaGFkb3c6IDAgNHB4IDIwcHggMHB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgN3B4IDEwcHggLTVweCByZ2JhKDIzMywgMzAsIDk5LCAwLjQpO1xuICAvKm1hcmdpbjogLTIwcHggMTVweCAwOyovXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgcGFkZGluZzogMTVweDtcbiAgdG9wOiAtMjNweDtcbn1cblxuLmNhcmQtaGVhZGVyIGkge1xuICBmb250LXNpemU6IDI0cHg7XG4gIHdpZHRoOiAzM3B4O1xuICBoZWlnaHQ6IDMzcHg7XG4gIGxpbmUtaGVpZ2h0OiAzM3B4O1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmNhcmQtY29udGVudHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4uY2FyZC10aXRsZXtcbiAgcGFkZGluZy1sZWZ0OiA4MHB4O1xufVxuXG5cbi5tYXQtaW5wdXQtY29udGFpbmVye1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmNhdGVnb3J5e1xuICBmb250LXdlaWdodDogMzAwO1xufVxuXG5mb3Jte1xuICBtYXJnaW4tdG9wOiAzMHB4O1xufVxuXG4ucm93e1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuXG4ubWF0LWlucHV0LWNvbnRhaW5lciB0ZXh0YXJlYXtcbiAgaGVpZ2h0OiA5MHB4O1xufVxuXG4udGV4dGFyZWEtbGFiZWx7XG4gIGNvbG9yOiAjYWFhO1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuXG4uYWN0aW9uLWJ0bntcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbiAgcGFkZGluZy1yaWdodDogMTVweDtcbn1cblxuLnByb2dyZXNzLWJhci1jb250YWluZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG5cbi5tb2RlbC1yZXN1bHQtY29udGFpbmVye1xuICBtYXJnaW46IDMwcHggMTBweCAzMHB4IDEwcHg7XG59XG5cbi5tYXQtcHJvZ3Jlc3MtYmFye1xuICBoZWlnaHQ6IDEwcHghaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiAycHghaW1wb3J0YW50O1xuICBtYXJnaW46IGF1dG87XG59XG5cbi5yZXN1bHQtdGl0bGV7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG59XG5cbjo6bmctZGVlcCAubWF0LXByb2dyZXNzLWJhci1maWxsOjphZnRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyZWVuO1xufVxuXG46Om5nLWRlZXAgLm1hdC1wcm9ncmVzcy1iYXItYnVmZmVyIHtcbiAgYmFja2dyb3VuZDogcmVkO1xufVxuXG46Om5nLWRlZXAgLm1hdC1wcm9ncmVzcy1iYXIge1xuICBib3JkZXItcmFkaXVzOiAycHg7XG59XG5cbi5sb25ne1xuICBtaW4td2lkdGg6IDMwMHB4O1xufSJdfQ== */"
+module.exports = ".row{\n  margin-top: 10px;\n}\n\n.card{\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  position: relative;\n  margin-top: 40px;\n}\n\n.card-header {\n  position: absolute;\n  text-align: center;\n  background: linear-gradient(60deg, #ec407a, #d81b60);\n  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);\n  /*margin: -20px 15px 0;*/\n  border-radius: 3px;\n  padding: 15px;\n  top: -23px;\n}\n\n.feedback-icons:hover{\n  cursor: pointer;\n}\n\n.card-header i {\n  font-size: 24px;\n  width: 33px;\n  height: 33px;\n  line-height: 33px;\n  color: #fff;\n}\n\n.card-content{\n  position: relative;\n}\n\n.card-title{\n  padding-left: 80px;\n}\n\n.mat-input-container{\n  width: 100%;\n}\n\n.category{\n  font-weight: 300;\n}\n\nform{\n  margin-top: 30px;\n}\n\n.row{\n  margin-top: 15px;\n}\n\n.mat-input-container textarea{\n  height: 90px;\n}\n\n.textarea-label{\n  color: #aaa;\n  margin-bottom: 10px;\n}\n\n.action-btn{\n  display: flex;\n  justify-content: flex-end;\n  padding-right: 15px;\n}\n\n.progress-bar-container{\n  display: flex;\n}\n\n.model-result-container{\n  margin: 30px 10px 30px 10px;\n}\n\n.mat-progress-bar{\n  height: 10px!important;\n  border-radius: 2px!important;\n  margin: auto;\n}\n\n.result-title{\n  font-weight: 400;\n}\n\n::ng-deep .mat-progress-bar-fill::after {\n  background-color: green;\n}\n\n::ng-deep .mat-progress-bar-buffer {\n  background: red;\n}\n\n::ng-deep .mat-progress-bar {\n  border-radius: 2px;\n}\n\n.long{\n  min-width: 300px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxjQUFjO0VBQ2QsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCxtQkFBbUI7RUFDbkIsaUJBQWlCO0NBQ2xCOztBQUVEO0VBQ0UsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQixxREFBcUQ7RUFDckQsdUZBQXVGO0VBQ3ZGLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsY0FBYztFQUNkLFdBQVc7Q0FDWjs7QUFFRDtFQUNFLGdCQUFnQjtDQUNqQjs7QUFFRDtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixZQUFZO0NBQ2I7O0FBRUQ7RUFDRSxtQkFBbUI7Q0FDcEI7O0FBRUQ7RUFDRSxtQkFBbUI7Q0FDcEI7O0FBR0Q7RUFDRSxZQUFZO0NBQ2I7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxpQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxhQUFhO0NBQ2Q7O0FBRUQ7RUFDRSxZQUFZO0VBQ1osb0JBQW9CO0NBQ3JCOztBQUVEO0VBQ0UsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixvQkFBb0I7Q0FDckI7O0FBRUQ7RUFDRSxjQUFjO0NBQ2Y7O0FBRUQ7RUFDRSw0QkFBNEI7Q0FDN0I7O0FBRUQ7RUFDRSx1QkFBdUI7RUFDdkIsNkJBQTZCO0VBQzdCLGFBQWE7Q0FDZDs7QUFFRDtFQUNFLGlCQUFpQjtDQUNsQjs7QUFFRDtFQUNFLHdCQUF3QjtDQUN6Qjs7QUFFRDtFQUNFLGdCQUFnQjtDQUNqQjs7QUFFRDtFQUNFLG1CQUFtQjtDQUNwQjs7QUFFRDtFQUNFLGlCQUFpQjtDQUNsQiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC90YWJsZS90YWJsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJvd3tcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmNhcmR7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIHBhZGRpbmc6IDIwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn1cblxuLmNhcmQtaGVhZGVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg2MGRlZywgI2VjNDA3YSwgI2Q4MWI2MCk7XG4gIGJveC1zaGFkb3c6IDAgNHB4IDIwcHggMHB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgN3B4IDEwcHggLTVweCByZ2JhKDIzMywgMzAsIDk5LCAwLjQpO1xuICAvKm1hcmdpbjogLTIwcHggMTVweCAwOyovXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgcGFkZGluZzogMTVweDtcbiAgdG9wOiAtMjNweDtcbn1cblxuLmZlZWRiYWNrLWljb25zOmhvdmVye1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5jYXJkLWhlYWRlciBpIHtcbiAgZm9udC1zaXplOiAyNHB4O1xuICB3aWR0aDogMzNweDtcbiAgaGVpZ2h0OiAzM3B4O1xuICBsaW5lLWhlaWdodDogMzNweDtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5jYXJkLWNvbnRlbnR7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmNhcmQtdGl0bGV7XG4gIHBhZGRpbmctbGVmdDogODBweDtcbn1cblxuXG4ubWF0LWlucHV0LWNvbnRhaW5lcntcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5jYXRlZ29yeXtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbn1cblxuZm9ybXtcbiAgbWFyZ2luLXRvcDogMzBweDtcbn1cblxuLnJvd3tcbiAgbWFyZ2luLXRvcDogMTVweDtcbn1cblxuLm1hdC1pbnB1dC1jb250YWluZXIgdGV4dGFyZWF7XG4gIGhlaWdodDogOTBweDtcbn1cblxuLnRleHRhcmVhLWxhYmVse1xuICBjb2xvcjogI2FhYTtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cblxuLmFjdGlvbi1idG57XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XG59XG5cbi5wcm9ncmVzcy1iYXItY29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuXG4ubW9kZWwtcmVzdWx0LWNvbnRhaW5lcntcbiAgbWFyZ2luOiAzMHB4IDEwcHggMzBweCAxMHB4O1xufVxuXG4ubWF0LXByb2dyZXNzLWJhcntcbiAgaGVpZ2h0OiAxMHB4IWltcG9ydGFudDtcbiAgYm9yZGVyLXJhZGl1czogMnB4IWltcG9ydGFudDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuXG4ucmVzdWx0LXRpdGxle1xuICBmb250LXdlaWdodDogNDAwO1xufVxuXG46Om5nLWRlZXAgLm1hdC1wcm9ncmVzcy1iYXItZmlsbDo6YWZ0ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbjtcbn1cblxuOjpuZy1kZWVwIC5tYXQtcHJvZ3Jlc3MtYmFyLWJ1ZmZlciB7XG4gIGJhY2tncm91bmQ6IHJlZDtcbn1cblxuOjpuZy1kZWVwIC5tYXQtcHJvZ3Jlc3MtYmFyIHtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xufVxuXG4ubG9uZ3tcbiAgbWluLXdpZHRoOiAzMDBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1155,7 +1158,7 @@ module.exports = ".row{\n  margin-top: 10px;\n}\n\n.card{\n  display: flex;\n  f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <app-navbar title=\"Live Demo\"></app-navbar>\n\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <i class=\"material-icons\">assignment</i>\n    </div>\n    \n    <div class=\"card-content\">\n      <h4 class=\"card-title\">Enter Article Details</h4>\n      <form>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <mat-form-field color=\"accent\" class=\"long\">\n              <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"title\" value=\"Ci\" name=\"firstName\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-6\"> \n            <mat-form-field color=\"accent\" class=\"long\">\n              <input matInput type=\"text\" placeholder=\"Source\" [(ngModel)]=\"sourceLink\" value=\"Clia\" name=\"lastName\">\n            </mat-form-field>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n              <mat-checkbox [(ngModel)]=\"has_image\" name=\"has_image\">Have image</mat-checkbox>\n          </div>\n          <div class=\"col-md-6\">\n              <mat-checkbox [(ngModel)]=\"has_video\" name=\"has_video\">Have Video</mat-checkbox>\n\n          </div>\n        </div>\n        <!-- <div class=\"row\">\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"City\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"Country\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"Postcode\">\n            </mat-form-field>\n          </div>\n        </div> -->\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <label class=\"textarea-label\">Article Details/Description</label>\n            <br>\n            <mat-form-field color=\"accent\" style=\"width: 100%;\">\n              <textarea matInput rows=\"5\" cols=\"40\" placeholder=\"Enter Article Description/ Details to Evaluate\"></textarea>\n            </mat-form-field>\n          </div>\n        </div>\n        <div class=\"row action-btn\">\n          <button md-raised-button type=\"submit\" class=\"btn btn-rose\" (click)=\"evaluateArticle()\">Evaluate</button>\n        </div>\n      </form>\n    </div>\n  </div>\n\n\n\n  <div class=\"card\" *ngIf=\"showResults\">\n    <div class=\"card-header\">\n      <i class=\"material-icons\">assignment</i>\n    </div>\n    \n    <div class=\"card-content\">\n      <h4 class=\"card-title\">Results</h4>\n\n      <div class=\"model-result-container\" *ngFor=\"let result of results\">\n        <div class=\"result-title\">{{result.model}}</div>\n\n        <div class=\"progress-bar-container\">\n          <div class=\"true-label\">True: {{getTruthPercentage(result.fake)}}%</div>\n          <mat-progress-bar mode=\"determinate\" value=\"{{getTruthPercentage(result.fake)}}\"></mat-progress-bar>\n          <div class=\"false-label\">False: {{getFakePercentage(result.fake)}}%</div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n\n\n\n  <!-- <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">assignment</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">Simple Table</h4>\n          <div class=\"table-responsive\">\n            <table class=\"table\">\n              <thead class=\"text-primary\">\n                <tr>\n                  <th>First Name</th>\n                  <th>Country</th>\n                  <th>City</th>\n                  <th>Salary</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Dakota Rice</td>\n                  <td>Niger</td>\n                  <td>Oud-Turnhout</td>\n                  <td class=\"text-primary\">$36,738</td>\n                </tr>\n                <tr>\n                  <td>Minerva Hooper</td>\n                  <td>Curaçao</td>\n                  <td>Sinaai-Waas</td>\n                  <td class=\"text-primary\">$23,789</td>\n                </tr>\n                <tr>\n                  <td>Sage Rodriguez</td>\n                  <td>Netherlands</td>\n                  <td>Baileux</td>\n                  <td class=\"text-primary\">$56,142</td>\n                </tr>\n                <tr>\n                  <td>Philip Chaney</td>\n                  <td>Korea, South</td>\n                  <td>Overland Park</td>\n                  <td class=\"text-primary\">$38,735</td>\n                </tr>\n                <tr>\n                  <td>Doris Greene</td>\n                  <td>Malawi</td>\n                  <td>Feldkirchen in Kärnten</td>\n                  <td class=\"text-primary\">$63,542</td>\n                </tr>\n                <tr>\n                  <td>Mason Porter</td>\n                  <td>Chile</td>\n                  <td>Gloucester</td>\n                  <td class=\"text-primary\">$78,615</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">assignment</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">Striped Table</h4>\n          <div class=\"table-responsive\">\n            <table class=\"table table-striped\">\n              <thead>\n              <tr>\n                <th>#</th>\n                <th></th>\n                <th>Product Name</th>\n                <th>Type</th>\n                <th>Quantity</th>\n                <th class=\"text-right\">Price</th>\n                <th class=\"text-right\">Amount</th>\n              </tr>\n              </thead>\n              <tbody>\n              <tr>\n                <td>1</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Moleskine Agenda</td>\n                <td>Oud-Office</td>\n                <td>25</td>\n                <td class=\"text-right\">€ 49</td>\n                <td class=\"text-right\">€ 1,225</td>\n              </tr>\n              <tr>\n                <td>2</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Stabilo Pen</td>\n                <td>Office</td>\n                <td>35</td>\n                <td class=\"text-right\">€ 10</td>\n                <td class=\"text-right\">€ 300</td>\n              </tr>\n              <tr>\n                <td>3</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>A4 Paper Pack</td>\n                <td>Office</td>\n                <td>50</td>\n                <td class=\"text-right\">€ 599.00</td>\n                <td class=\"text-right\">€ 109</td>\n              </tr>\n              <tr>\n                <td>4</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Apple iPad</td>\n                <td>Meeting</td>\n                <td>20</td>\n                <td class=\"text-right\">€ 10.99</td>\n                <td class=\"text-right\">€ 4,999</td>\n              </tr>\n              <tr>\n                <td>5</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Apple iPhone</td>\n                <td>Communication</td>\n                <td>10</td>\n                <td class=\"text-right\">€ 499.00</td>\n                <td class=\"text-right\">€ 5,999</td>\n              </tr>\n              <tr>\n                <td colspan=\"5\"></td>\n                <td style=\"font-weight: 500; font-size: 1.25em;\" class=\"text-right\">Total</td>\n                <td style=\"font-size: 26px\" class=\"text-right\">€12,999</td>\n              </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div> -->\n</div>\n"
+module.exports = "<div class=\"container\">\n  <app-navbar title=\"Live Demo\"></app-navbar>\n\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <i class=\"material-icons\">assignment</i>\n    </div>\n    \n    <div class=\"card-content\">\n      <h4 class=\"card-title\">Enter Article Details</h4>\n      <form>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <mat-form-field color=\"accent\" class=\"long\">\n              <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"title\" value=\"Ci\" name=\"firstName\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-6\"> \n            <mat-form-field color=\"accent\" class=\"long\">\n              <input matInput type=\"text\" placeholder=\"Source\" [(ngModel)]=\"sourceLink\" value=\"Clia\" name=\"lastName\">\n            </mat-form-field>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n              <mat-checkbox [(ngModel)]=\"has_image\" name=\"has_image\">Have image</mat-checkbox>\n          </div>\n          <div class=\"col-md-6\">\n              <mat-checkbox [(ngModel)]=\"has_video\" name=\"has_video\">Have Video</mat-checkbox>\n\n          </div>\n        </div>\n        <!-- <div class=\"row\">\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"City\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"Country\">\n            </mat-form-field>\n          </div>\n          <div class=\"col-md-4\">\n            <mat-form-field color=\"accent\">\n              <input matInput type=\"text\" placeholder=\"Postcode\">\n            </mat-form-field>\n          </div>\n        </div> -->\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <label class=\"textarea-label\">Article Details/Description</label>\n            <br>\n            <mat-form-field color=\"accent\" style=\"width: 100%;\">\n              <textarea matInput rows=\"5\" cols=\"40\" name=\"description\" [(ngModel)]=\"description\" placeholder=\"Enter Article Description/ Details to Evaluate\"></textarea>\n            </mat-form-field>\n          </div>\n        </div>\n        <div class=\"row action-btn\">\n          <button md-raised-button type=\"submit\" class=\"btn btn-rose\" (click)=\"evaluateArticle()\">Evaluate</button>\n        </div>\n      </form>\n    </div>\n  </div>\n\n\n\n  <div class=\"card\" *ngIf=\"showResults\">\n    <div class=\"card-header\">\n      <i class=\"material-icons\">assignment</i>\n    </div>\n    \n    <div class=\"card-content\">\n      <h4 class=\"card-title\">Results</h4>\n\n      <div class=\"model-result-container\" *ngFor=\"let result of results\">\n        <div class=\"result-title\">{{result.model}}</div>\n\n        <div class=\"progress-bar-container\">\n          <div class=\"true-label\">True: {{getTruthPercentage(result.fake)}}%</div>\n          <mat-progress-bar mode=\"determinate\" value=\"{{getTruthPercentage(result.fake)}}\"></mat-progress-bar>\n          <div class=\"false-label\">False: {{getFakePercentage(result.fake)}}%</div>\n          <div class=\"feedback-container\">\n            <i class=\"material-icons feedback-icons\" (click)=\"feedback(result, true)\">thumb_up</i>\n            <i class=\"material-icons feedback-icons\" (click)=\"feedback(result, false)\">thumb_down</i>\n          </div>\n          \n        </div>\n\n      </div>\n    </div>\n  </div>\n\n\n\n\n  <!-- <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">assignment</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">Simple Table</h4>\n          <div class=\"table-responsive\">\n            <table class=\"table\">\n              <thead class=\"text-primary\">\n                <tr>\n                  <th>First Name</th>\n                  <th>Country</th>\n                  <th>City</th>\n                  <th>Salary</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Dakota Rice</td>\n                  <td>Niger</td>\n                  <td>Oud-Turnhout</td>\n                  <td class=\"text-primary\">$36,738</td>\n                </tr>\n                <tr>\n                  <td>Minerva Hooper</td>\n                  <td>Curaçao</td>\n                  <td>Sinaai-Waas</td>\n                  <td class=\"text-primary\">$23,789</td>\n                </tr>\n                <tr>\n                  <td>Sage Rodriguez</td>\n                  <td>Netherlands</td>\n                  <td>Baileux</td>\n                  <td class=\"text-primary\">$56,142</td>\n                </tr>\n                <tr>\n                  <td>Philip Chaney</td>\n                  <td>Korea, South</td>\n                  <td>Overland Park</td>\n                  <td class=\"text-primary\">$38,735</td>\n                </tr>\n                <tr>\n                  <td>Doris Greene</td>\n                  <td>Malawi</td>\n                  <td>Feldkirchen in Kärnten</td>\n                  <td class=\"text-primary\">$63,542</td>\n                </tr>\n                <tr>\n                  <td>Mason Porter</td>\n                  <td>Chile</td>\n                  <td>Gloucester</td>\n                  <td class=\"text-primary\">$78,615</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">assignment</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">Striped Table</h4>\n          <div class=\"table-responsive\">\n            <table class=\"table table-striped\">\n              <thead>\n              <tr>\n                <th>#</th>\n                <th></th>\n                <th>Product Name</th>\n                <th>Type</th>\n                <th>Quantity</th>\n                <th class=\"text-right\">Price</th>\n                <th class=\"text-right\">Amount</th>\n              </tr>\n              </thead>\n              <tbody>\n              <tr>\n                <td>1</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Moleskine Agenda</td>\n                <td>Oud-Office</td>\n                <td>25</td>\n                <td class=\"text-right\">€ 49</td>\n                <td class=\"text-right\">€ 1,225</td>\n              </tr>\n              <tr>\n                <td>2</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Stabilo Pen</td>\n                <td>Office</td>\n                <td>35</td>\n                <td class=\"text-right\">€ 10</td>\n                <td class=\"text-right\">€ 300</td>\n              </tr>\n              <tr>\n                <td>3</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>A4 Paper Pack</td>\n                <td>Office</td>\n                <td>50</td>\n                <td class=\"text-right\">€ 599.00</td>\n                <td class=\"text-right\">€ 109</td>\n              </tr>\n              <tr>\n                <td>4</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Apple iPad</td>\n                <td>Meeting</td>\n                <td>20</td>\n                <td class=\"text-right\">€ 10.99</td>\n                <td class=\"text-right\">€ 4,999</td>\n              </tr>\n              <tr>\n                <td>5</td>\n                <td><mat-checkbox></mat-checkbox></td>\n                <td>Apple iPhone</td>\n                <td>Communication</td>\n                <td>10</td>\n                <td class=\"text-right\">€ 499.00</td>\n                <td class=\"text-right\">€ 5,999</td>\n              </tr>\n              <tr>\n                <td colspan=\"5\"></td>\n                <td style=\"font-weight: 500; font-size: 1.25em;\" class=\"text-right\">Total</td>\n                <td style=\"font-size: 26px\" class=\"text-right\">€12,999</td>\n              </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div> -->\n</div>\n"
 
 /***/ }),
 
@@ -1170,6 +1173,7 @@ module.exports = "<div class=\"container\">\n  <app-navbar title=\"Live Demo\"><
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_services_settings_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/services/settings.service */ "./src/app/services/settings.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1180,36 +1184,68 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var TableComponent = /** @class */ (function () {
-    function TableComponent() {
+    //   {
+    //     "model":"Model 1",
+    //     "fake": 6
+    //   },
+    //   {
+    //     "model":"Model 2",
+    //     "fake": 70
+    //   },
+    //   {
+    //     "model":"Model 3",
+    //     "fake": 66
+    //   },
+    //   {
+    //     "model":"Model 4",
+    //     "fake": 55
+    //   }
+    // ]
+    function TableComponent(settingsService) {
+        this.settingsService = settingsService;
         this.showResults = false;
-        this.results = [
-            {
-                "model": "Model 1",
-                "fake": 6
-            },
-            {
-                "model": "Model 2",
-                "fake": 70
-            },
-            {
-                "model": "Model 3",
-                "fake": 66
-            },
-            {
-                "model": "Model 4",
-                "fake": 55
-            }
-        ];
+        this.newsObj = {};
+        this.modelFeedbackArr = {};
+        this.results = [];
     }
     TableComponent.prototype.ngOnInit = function () {
         this.title = 'Minimum Wage increases in Canada';
         this.sourceLink = 'ircc.';
+        this.description = " Alpha, beta, gamme, Minimum Wage increases in Canada";
         this.has_video = false;
         this.has_image = true;
     };
     TableComponent.prototype.evaluateArticle = function () {
-        this.showResults = !this.showResults;
+        var _this = this;
+        // this.showResults = !this.showResults;
+        this.newsObj = {
+            "title": this.title,
+            "source": this.sourceLink,
+            "has_image": this.has_image,
+            "has_video": this.has_video,
+            "description": this.description
+        };
+        this.settingsService.getModelResults(this.newsObj).subscribe(function (results) {
+            if (results.length > 0) {
+                console.log(results);
+                _this.results = results;
+                _this.showResults = !_this.showResults;
+            }
+        });
+    };
+    TableComponent.prototype.feedback = function (model, response) {
+        var _this = this;
+        if (!this.modelFeedbackArr.hasOwnProperty(model.modelId)) {
+            this.settingsService.feedbackToModel(response, this.newsObj).subscribe(function (response) {
+                _this.showTooltip("primary", "Feedback Received. Thanks for the feedback!");
+                _this.modelFeedbackArr[model.modelId] = response;
+            });
+        }
+        else {
+            this.showTooltip("danger", "Feedback already Updated.");
+        }
     };
     TableComponent.prototype.getTruthPercentage = function (prob) {
         return 100 - prob; //(Math.round((1-prob)*100)/100)*100;
@@ -1217,13 +1253,28 @@ var TableComponent = /** @class */ (function () {
     TableComponent.prototype.getFakePercentage = function (prob) {
         return prob;
     };
+    TableComponent.prototype.showTooltip = function (color, text) {
+        var from = 'top';
+        var align = 'right';
+        var type = 'info';
+        align = 'center';
+        type = color;
+        $.notify({
+            message: text,
+        }, {
+            placement: { from: from, align: align },
+            offset: { x: 20, y: 35 },
+            type: type,
+            template: "<div class=\"alert alert-{0} alert-with-icon col-md-4\">\n          <i class=\"material-icons alert-icon\">notifications</i>\n          <button class=\"close\" type=\"button\" data-dismiss=\"alert\" aria-label=\"Close\"><i class=\"material-icons\">close</i></button>\n          <span>{2}</span>\n        </div>"
+        });
+    };
     TableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-table',
             template: __webpack_require__(/*! ./table.component.html */ "./src/app/dashboard/table/table.component.html"),
             styles: [__webpack_require__(/*! ./table.component.css */ "./src/app/dashboard/table/table.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [app_services_settings_service__WEBPACK_IMPORTED_MODULE_1__["SettingsService"]])
     ], TableComponent);
     return TableComponent;
 }());
@@ -1433,7 +1484,8 @@ var RegisterComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsService", function() { return SettingsService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1444,14 +1496,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var SettingsService = /** @class */ (function () {
-    function SettingsService() {
+    function SettingsService(http) {
+        this.http = http;
         this.sidebarImageIndex = 4;
-        this.sidebarImageIndexUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.sidebarImageIndexUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.sidebarFilter = '#fff';
-        this.sidebarFilterUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.sidebarFilterUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.sidebarColor = '#D80B0B';
-        this.sidebarColorUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.sidebarColorUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        // public backendUrl = "http://localhost:9090/"
+        this.backendUrl = "https://us-central1-final-project-380522.cloudfunctions.net/fakenews/";
     }
     SettingsService.prototype.getSidebarImageIndex = function () {
         return this.sidebarImageIndex;
@@ -1474,9 +1530,18 @@ var SettingsService = /** @class */ (function () {
         this.sidebarColor = color;
         this.sidebarColorUpdate.emit(this.sidebarColor);
     };
+    SettingsService.prototype.getModelResults = function (newsInfo) {
+        // return this.http.get(this.backendUrl);
+        return this.http.post(this.backendUrl + "evaluate-model", newsInfo);
+    };
+    SettingsService.prototype.feedbackToModel = function (feedback_value, newsObj) {
+        var feedBackObj = JSON.parse(JSON.stringify(newsObj));
+        feedBackObj.feedback_value = feedback_value;
+        return this.http.post(this.backendUrl + "feedback", feedBackObj);
+    };
     SettingsService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], SettingsService);
     return SettingsService;
 }());

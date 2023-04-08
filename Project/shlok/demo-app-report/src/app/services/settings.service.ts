@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
@@ -9,7 +10,11 @@ export class SettingsService {
   public sidebarColor = '#D80B0B';
   public sidebarColorUpdate: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  // public backendUrl = "http://localhost:9090/"
+  public backendUrl = "https://us-central1-final-project-380522.cloudfunctions.net/fakenews/"
+
+
+  constructor(private http: HttpClient) { }
 
   getSidebarImageIndex(): number {
     return this.sidebarImageIndex;
@@ -31,5 +36,17 @@ export class SettingsService {
   setSidebarColor(color: string) {
     this.sidebarColor = color;
     this.sidebarColorUpdate.emit(this.sidebarColor);
+  }
+
+
+  getModelResults(newsInfo){
+    // return this.http.get(this.backendUrl);
+    return this.http.post(this.backendUrl + "evaluate-model", newsInfo);
+  }
+
+  feedbackToModel(feedback_value, newsObj){
+    let feedBackObj = JSON.parse(JSON.stringify(newsObj));
+    feedBackObj.feedback_value = feedback_value
+    return this.http.post(this.backendUrl + "feedback", feedBackObj)
   }
 }

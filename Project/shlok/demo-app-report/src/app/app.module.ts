@@ -30,6 +30,7 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { WizardComponent } from './dashboard/component/wizard/wizard.component';
     MatInputModule,
     MatMenuModule,
     MatCheckboxModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
