@@ -3,3 +3,8 @@
 
 flask
 flask_cors
+numpy
+pandas
+torch
+torchtext
+transformers
