@@ -33,7 +33,9 @@ def run_model(newsObj):
 
 
 def feedback_to_model(newsObj):
-    print(newsObj['feedback_value'])
+    # print(newsObj['feedback_value'])
+    with open('log', 'a+') as f:
+        f.write(json.dumps(newsObj))
 
 @app.route("/")
 def home():
