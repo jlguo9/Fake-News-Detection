@@ -90,10 +90,10 @@ export class TableComponent implements OnInit {
   }
 
   getTruthPercentage(prob){
-    return 100 - prob//(Math.round((1-prob)*100)/100)*100;
+    return Math.trunc(100 - this.getFakePercentage(prob))//(Math.round((1-prob)*100)/100)*100;
   }
   getFakePercentage(prob){
-    return prob;
+    return Math.trunc(prob*100);
   }
 
   showTooltip(color, text){
