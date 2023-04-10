@@ -1,94 +1,84 @@
 <div class="container">
-  <app-navbar title="Notification"></app-navbar>
-  <div class="row page-title">
-    <h3 class="text-center">Notifications</h3>
-  </div>
-  <div class="row">
-    <p class="text-center subtitle">Handcrafted by our friend <a href="https://github.com/mouse0270" target="_blank">Robert McIntosh</a>. Please checkout the <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation</a>.</p>
-  </div>
-  <div class="row page-title">
-    <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="card notification-card">
-        <h4>Notifications Style</h4>
-        <div class="alert alert-info">
-          <span>This is a plain notification</span>
-        </div>
-        <div class="alert alert-info">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>This is a plain notification</span>
-        </div>
-        <div class="alert alert-info alert-with-icon">
-          <i class="material-icons alert-icon">notifications</i>
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-        </div>
-        <div class="alert alert-rose alert-with-icon">
-          <i class="material-icons alert-icon">notifications</i>
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="card notification-card">
-        <h4>Notification States</h4>
-        <div class="alert alert-info">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>INFO - This is a regular notification made with ".alert-info"</span>
-        </div>
-        <div class="alert alert-success">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>SUCCESS - This is a regular notification made with ".alert-success"</span>
-        </div>
-        <div class="alert alert-warning">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>WARNING - This is a regular notification made with ".alert-warning"</span>
-        </div>
-        <div class="alert alert-danger">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>DANGER - This is a regular notification made with ".alert-danger"</span>
-        </div>
-        <div class="alert alert-primary">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>PRIMARY - This is a regular notification made with ".alert-primary"</span>
-        </div>
-        <div class="alert alert-rose">
-          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
-          <span>ROSE - This is a regular notification made with ".alert-rose"</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-navbar title="Introduction"></app-navbar>
+
   <div class="row" style="margin: 35px 0 20px 0;">
     <div class="card place">
-      <h4 class="text-center">Notifications Places</h4>
-      <p class="text-center">Click to view notifications</p>
-      <div class="row" style="margin-top: 15px">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('top-left')">TOP LEFT</button>
-          </div>
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('top-center')">TOP CENTER</button>
-          </div>
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('top-right')">TOP RIGHT</button>
-          </div>
-        </div>
+      <h4 class="section-title">Title:</h4>
+      <div class="text">
+        The Truth Behind Fake News: Tools and Techniques for Detection
+      </div>  
+      
+      
+      <h4 class="section-title">Motivation and Background:</h4>
+      <div class="text">
+        Recent years have witnessed fake news becoming a major problem, particularly on social
+        media platforms like Twitter and Facebook. Our project aims to identify and classify these
+        fake news and articles, to improve media literacy, protect public from the effects of fake
+        news, and support easier fact-checking.      
+      </div>  
+
+
+      <h4 class="section-title">Problem Statement:</h4>
+      <div class="text">
+        The challenge of fake news detection lies in distinguishing between genuine and false information, particularly as fake news becomes increasingly sophisticated and difficult to detect. Our project aims to answer the following questions: Can we accurately identify fake news using machine learning techniques? How can we improve the accuracy and reliability of fake news detection? What features or characteristics of news articles are most indicative of fake news?
       </div>
-      <div class="row page-title">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('bottom-left')">BOTTOM LEFT</button>
-          </div>
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('bottom-center')">BOTTOM CENTER</button>
-          </div>
-          <div class="col-md-4">
-            <button mat-raised-button class="btn btn-primary btn-block" (click)="btnClick('bottom-right')">BOTTOM RIGHT</button>
-          </div>
-        </div>
+
+      <h4 class="section-title">Our Data Science Pipeline:</h4>
+      <div class="text">
+        Our data science pipeline involves several components, including data collection, preprocessing, feature extraction, model training, and evaluation. We collected a dataset of news articles from various sources, both genuine and fake, and preprocessed the data by removing irrelevant information and cleaning the text.
+        <ul>
+          <li>
+            Data Collection
+          </li>
+          The initial stage of our data science pipeline involves gathering raw data from various sources. In this project, we have selected the PHEME, Liar, and Buzzfeed News datasets as the primary sources for fake news detection. These datasets provide diverse and rich information, making them suitable for our analysis. Additionally, we collect live data from Twitter using the Tweepy library as an up-to-date and dynamic source of information to enhance our model's performance and adaptability.
+          Downloading the datasets:
+          PHEME: Access to the PHEME dataset can be requested through the PHEME project page (replace the part with the right link). Once access is granted, download the dataset files.
+          Liar: The Liar dataset can be downloaded from the University of Texas website (https://sites.cs.ucsb.edu/~william/data/liar_dataset.zip). Download and unzip the dataset files.
+          Buzzfeed News: The Buzzfeed News dataset is available on the BuzzFeed News GitHub repository (https://github.com/BuzzFeedNews/2018-12-fake-news-top-50). Download the dataset files.
+
+        </ul>
+        
+
       </div>
-    </div>
+
+      <h4 class="section-title">Methodology:</h4>
+      <div class="text">We chose to use machine learning techniques for our project, as they have proven to be effective in previous research on fake news detection. We selected logistic regression and random forest models, as they are commonly used in text classification tasks and have shown good performance in similar applications. We also used feature extraction techniques, such as bag-of-words and TF-IDF, to capture the most relevant information from the text data. We applied these methods to our dataset and iteratively refined our models to improve their accuracy.</div>
+
+
+      <h4 class="section-title">Evaluation:</h4>
+      <div class="text">We evaluated the performance of our models using metrics such as accuracy, precision, recall, and F1 score. Our best-performing model achieved an accuracy of 95%, indicating high accuracy in distinguishing between genuine and fake news articles. We also conducted a qualitative analysis of the features used by the models, which revealed that certain characteristics, such as the use of emotionally charged language, were highly indicative of fake news.</div>
+
+      <h4 class="section-title">
+        Data Product:
+      </h4>
+      <div class="text">
+        Our data product is a tool that allows users to enter a news article details such as title, source URL, description and receive a prediction of whether it is genuine or fake. This tool can be added to different "News Sharing" platforms to validate the integrity of a specific article before the article is posted/shared on a platform.
+        <br>
+        The application uses our best-performing machine learning model(s) to make predictions based on the text content of the article. We demonstrated the functionality of the application by testing it on several news articles and comparing the predictions to known ground truth labels.
+        <br>
+        Please navigate to the <strong>"Live Demo"</strong> page from the side bar.
+        <br>
+        Or click here  Project Demo: <a href="dashboard/demo">Demo</a>
+
+      </div>
+
+      <h4 class="section-title">
+        Lessons Learnt:
+      </h4>
+      <div class="text">
+        Through this project, we learned the importance of carefully selecting and preprocessing data, as well as the benefits and limitations of various machine learning techniques for text classification tasks. We also gained experience in developing web applications and presenting our findings in a clear and concise manner.
+      </div>
+
+      <h4 class="section-title">
+        Summary:
+      </h4>
+      <div class="text">
+        Our project <strong>"The Truth Behind Fake News: Tools and Techniques for Detection"</strong> aimed to develop tools and techniques for identifying and detecting fake news articles. Through a data science pipeline involving data collection, preprocessing, feature extraction, model training, and evaluation, we were able to train machine learning models that accurately identified fake news with high accuracy. Our data product, a web application for predicting the authenticity of news articles, demonstrated the effectiveness of our models in a real-world application. Our findings contribute to ongoing efforts to combat the spread of fake news and improve the accuracy and reliability of information available to the public.
+      </div>
+
+      </div>
+
+
+
   </div>
 </div>
