@@ -1,6 +1,7 @@
 export const ROUTES = [
 
-    { path: '/dashboard', title: 'Introduction', icon: 'dashboard', children: null },
+    // { path: '/dashboard', title: 'Introduction', icon: 'dashboard', children: null },
+    { path: 'introduction', title: 'Introduction', icon: 'dashboard', children: null },
     { path: 'analysis', title: 'Analysis', icon: 'person', children: null },
     { path: 'demo', title: 'Live Demo', icon: 'content_paste', children: null },
     { path: 'about', title: 'About', icon: 'person', children: null },
