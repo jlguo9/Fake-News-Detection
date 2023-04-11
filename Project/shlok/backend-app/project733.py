@@ -96,6 +96,9 @@ class FakeNewsDetector:
                 return probs[:,:].tolist()
         else:
             return logit.argmax(1)
+        
+    def predict_proba(self, texts):
+        return self.__call__(texts, prob=True)
 
 # For LSTM
 import torchtext.functional as F
@@ -178,6 +181,9 @@ class LSTMDetector:
                 return probs[:,:].tolist()
         else:
             return logit.argmax(1)
+    
+    def predict_proba(self, texts):
+        return self.__call__(texts, prob=True)
 
 def initializeModel():
     print('here')
