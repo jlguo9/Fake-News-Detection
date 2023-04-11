@@ -238,21 +238,22 @@ def initializeModel():
     # If input is a list of text strings, output will be a 2D list with each element being a tuple of probabilities described above
     
     # EXAMPLE:
-    text1 = ["Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing",
-        "WATCH: George W. Bush Calls Out Trump For Supporting White Supremacy",
-        "U.S. lawmakers question businessman at 2016 Trump Tower meeting: sources",
-        "Trump administration issues new rules on U.S. visa waivers"
-    ]
-    text2 = "Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing"
-    print(bert_detector(text1))
-    print(bert_detector(text2))
-    print(gpt2_detector(text1))
-    print(gpt2_detector(text2))
-    print(lstm_detector(text1))
-    print(lstm_detector(text2))
+    # text1 = ["Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing",
+    #     "WATCH: George W. Bush Calls Out Trump For Supporting White Supremacy",
+    #     "U.S. lawmakers question businessman at 2016 Trump Tower meeting: sources",
+    #     "Trump administration issues new rules on U.S. visa waivers"
+    # ]
+    # text2 = "Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing"
+    # print(bert_detector(text1))
+    # print(bert_detector(text2))
+    # print(gpt2_detector(text1))
+    # print(gpt2_detector(text2))
+    # print(lstm_detector(text1))
+    # print(lstm_detector(text2))
     # END OF EXAMPLE
     
     # TODO
+    print("Models and Detectors Loaded")
     return bert_detector, gpt2_detector, lstm_detector
 
 if __name__ == "__main__":
