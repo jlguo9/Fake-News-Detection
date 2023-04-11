@@ -1,0 +1,28 @@
+Q1
+We want to try to explore 3 of these four potential questions
+1. If the news is fake or not
+2. If some news is fake, can we know which field it belongs to (political, sports, etc.)?
+2. Can we find the source of a fake news and how?
+3. Which genre of accounts more tend to make fake news?
+
+Q2
+Fake News Classification - NLP kaggle
+Twitter dataset (2016)--Ma
+liar-politifact
+
+Q3
+Data Collection: Direct Download
+Data Exploration: Yes EDA can be conducted
+Data Cleaning: Yes. The datasets are large and contain columns that we may not need. We can first extract
+the columns we need and remove the irrelavant ones. And then we filter out low quility records.
+Besides, the data may come from various sources so that normalization may be needed.
+Data Integration: No
+Data Analysis: NLP, Graph Analysis, Cluster, Classification
+Data Product: A classification model and a report
+
+Q4
+Improving media literacy, protecting the public from the affect of fake news, 
+holding news sources accountable, supporting fact-checking efforts
+
+
+

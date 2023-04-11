@@ -1,0 +1,64 @@
+1.
+
+Good afternoon, everyone. 
+We are team 3 datamen
+Today, I'm excited to share with you our project on "The Truth Behind Fake News: Tools and Techniques for Detection."
+
+
+2.
+How many time have you come accross a aritcle on social media only to find out later that it was not Real.
+Specially in the time of covid vaccines or at the time of elections.
+The problem of fake news has become increasingly significant in recent years, and it has a profound impact on our society. 
+Social media and online media have become a primary source of news for many people, and fake news can influence public opinion and affect political and social processes. 
+This Misinformation and media illiteracy lead to  conflicts, promote discrimination, hurt public trust in institutions and undermine democracy. 
+Therefore, we believe the domain of fake news detection is worth studying.
+
+
+
+Now Detecting if an article is fake or real is a challenging task due to multiple reasons
+enormous volume of information online, 
+the various formats of news, 
+and the diversity of sources. 
+
+Additionally, fake news makers are getting better at disguising fake news as real. 
+Thus, our goal is to develop effective strategies for identifying fake news and enhancing media literacy to protect public opinion.
+
+
+3
+
+Coming to the Methodology
+
+We used natural language processing techniques to build a fake news detector that takes a news article details as input and outputs a prediction of whether it is genuine or fake. 
+We collected a dataset of real and fake news articles from various sources, including social media and news websites, and performed extensive preprocessing to prepare the data for analysis. 
+We used 3 popular general purpose NLP models for transfer learning and fine tuning it with the preprocesses and merged dataset
+
+We also have a feedback loop to our model which can feed live data and feeback back to the model to update models continously
+
+
+4
+
+
+So as I mentioned we Developed and deployed three fake news detectors​
+
+All three of ou r models can achieved >86% accuracy on test set​
+
+GPT-2-based model(which is our best performing model) achieved a 93% accuracy on test set, with a f1-score of 91% on "Fake" class
+
+
+
+5
+
+We are proud to present our data product, a fake news detector tool that allows users to enter a news article details and receive a prediction of whether it is genuine or fake. 
+With this tool, people can quickly check the authenticity of news articles before they post/share something on online platforms.
+
+6
+In the future, we plan to explore more advanced deep learning techniques to improve the performance of our fake news detection model. We also aim to integrate our tool with social media platforms to reach a larger audience and combat the spread of fake news. But that might be the topic of our future posts.
+In the future, we plan to extend our model to detect deepfake videos and images, which are becoming increasingly prevalent on social media. We also plan to incorporate more advanced natural language processing techniques and explore new sources of data to improve the performance of our model.
+
+
+7
+Thank you for taking the time to learn about our project. 
+We believe that our work will help combat the spread of fake news and contribute to improving media literacy, protecting public opinion, and supporting easier fact-checking.
+
+
+
