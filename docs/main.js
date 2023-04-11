@@ -123,12 +123,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_settings_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/settings.service */ "./src/app/services/settings.service.ts");
 /* harmony import */ var _dashboard_component_wizard_wizard_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/component/wizard/wizard.component */ "./src/app/dashboard/component/wizard/wizard.component.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -202,7 +204,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatProgressBarModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"]
             ],
-            providers: [_services_settings_service__WEBPACK_IMPORTED_MODULE_28__["SettingsService"]],
+            providers: [_services_settings_service__WEBPACK_IMPORTED_MODULE_28__["SettingsService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_31__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_31__["HashLocationStrategy"] }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
@@ -227,11 +229,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
 /* harmony import */ var _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/profile/profile.component */ "./src/app/dashboard/profile/profile.component.ts");
 /* harmony import */ var _dashboard_table_table_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/table/table.component */ "./src/app/dashboard/table/table.component.ts");
-/* harmony import */ var _dashboard_notification_notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/notification/notification.component */ "./src/app/dashboard/notification/notification.component.ts");
-/* harmony import */ var _dashboard_sweetalert_sweetalert_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dashboard/sweetalert/sweetalert.component */ "./src/app/dashboard/sweetalert/sweetalert.component.ts");
-/* harmony import */ var _dashboard_root_root_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/root/root.component */ "./src/app/dashboard/root/root.component.ts");
-/* harmony import */ var _page_lock_lock_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./page/lock/lock.component */ "./src/app/page/lock/lock.component.ts");
-/* harmony import */ var _page_register_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./page/register/register.component */ "./src/app/page/register/register.component.ts");
+/* harmony import */ var _dashboard_root_root_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/root/root.component */ "./src/app/dashboard/root/root.component.ts");
+/* harmony import */ var _page_lock_lock_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page/lock/lock.component */ "./src/app/page/lock/lock.component.ts");
+/* harmony import */ var _page_register_register_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./page/register/register.component */ "./src/app/page/register/register.component.ts");
 /**
  * Created by wangdi on 26/5/17.
  */
@@ -242,20 +242,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 var routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: 'lock', component: _page_lock_lock_component__WEBPACK_IMPORTED_MODULE_7__["LockComponent"] },
-    { path: 'register', component: _page_register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"] },
+    { path: 'lock', component: _page_lock_lock_component__WEBPACK_IMPORTED_MODULE_5__["LockComponent"] },
+    { path: 'register', component: _page_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"] },
     { path: 'home', component: _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"] },
     // {path: 'about', component: ProfileComponent},
-    { path: 'dashboard', component: _dashboard_root_root_component__WEBPACK_IMPORTED_MODULE_6__["RootComponent"], children: [
+    { path: 'dashboard', component: _dashboard_root_root_component__WEBPACK_IMPORTED_MODULE_4__["RootComponent"], children: [
             { path: '', redirectTo: 'about', pathMatch: 'full' },
-            { path: 'introduction', component: _dashboard_notification_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"], pathMatch: 'full' },
-            { path: 'analysis', component: _dashboard_sweetalert_sweetalert_component__WEBPACK_IMPORTED_MODULE_5__["SweetAlertComponent"], pathMatch: 'full' },
+            // {path: 'introduction', component: NotificationComponent ,pathMatch: 'full'},
+            // {path: 'analysis', component: SweetAlertComponent ,pathMatch: 'full'},
             { path: 'demo', component: _dashboard_table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"], pathMatch: 'full' },
-            { path: 'about', component: _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__["ProfileComponent"] }
+            { path: 'about', component: _dashboard_profile_profile_component__WEBPACK_IMPORTED_MODULE_2__["ProfileComponent"], pathMatch: 'full' }
             // {path: 'profile', component: ProfileComponent},
             // {path: 'table', component: TableComponent},
             // {path: 'notification', component: NotificationComponent},
@@ -752,7 +750,7 @@ module.exports = ".right-profile{\n  display: flex;\n  flex-direction: column;\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <app-navbar title=\"About\"></app-navbar>\n  <div class=\"row\" style=\"margin-top: 30px\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">perm_identity</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">About this App\n          </h4>\n          <div class=\"text\">\n            This is the application for our final project Report and Demo for CMPT 733 Big Data Lab at SFU.\n          </div>\n\n          <div class=\"text\">\n            Repository Link: <a href=\"https://github.sfu.ca/sna101/3_datamen_CMPT_733\">https://github.sfu.ca/sna101/3_datamen_CMPT_733</a>\n          </div>\n\n          <div class=\"text\">\n            About our Project: <a href=\"dashboard/introduction\">Introduction</a>\n          </div>\n          <div class=\"text\">\n            Project Demo: <a href=\"dashboard/demo\">Demo</a>\n          </div>\n          \n          <div class=\"text\">\n            Team Members:\n            <ul>\n              <li>Song Lin</li>\n              <li>Shlok Nangia</li>\n              <li>Jialiang Guo</li>\n            </ul> \n          </div>\n            \n        </div>\n      </div>\n    </div>\n    <!-- <div class=\"col-md-4\">\n      <div class=\"card right-profile\">\n        <div class=\"profile\">\n          <img src=\"../../../assets/img/marc.jpg\" alt=\"profile\"/>\n        </div>\n        <h6>CEO / CO-FOUNDER</h6>\n        <h4>{{ firstName }} {{ lastName }}</h4>\n        <p>Don't be scared of the truth because we need to restart the human foundation in truth And I love you like\n          Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>\n        <button mat-raised-button class=\"btn btn-rose btn-round\">CHANGE</button>\n      </div>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <app-navbar title=\"About\"></app-navbar>\n  <div class=\"row\" style=\"margin-top: 30px\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <i class=\"material-icons\">perm_identity</i>\n        </div>\n        <div class=\"card-content\">\n          <h4 class=\"card-title\">About this App\n          </h4>\n          <div class=\"text\">\n            This is the application for our final project Report and Demo for CMPT 733 Big Data Lab at SFU.\n          </div>\n\n          <div class=\"text\">\n            Repository Link: <a href=\"https://github.sfu.ca/sna101/3_datamen_CMPT_733\">https://github.sfu.ca/sna101/3_datamen_CMPT_733</a>\n          </div>\n\n          <div class=\"text\">\n            About our Project: <a href=\"https://medium.com/@shloknangia/the-truth-behind-fake-news-tools-and-techniques-for-detection-badd76b61a7c\">Medium Link</a>\n          </div>\n          <div class=\"text\">\n            Project Demo: <a  href=\"#/dashboard/demo\"  (click)=\"openDemo()\">Demo</a>\n            <!-- [href]=\"[menuItem.path] routerLinkActive=\"active\" routerLink=\"/dashboard/demo\"-->\n          </div>\n          \n          <div class=\"text\">\n            Team Members:\n            <ul>\n              <li>Song Lin</li>\n              <li>Shlok Nangia</li>\n              <li>Jialiang Guo</li>\n            </ul> \n          </div>\n            \n        </div>\n      </div>\n    </div>\n    <!-- <div class=\"col-md-4\">\n      <div class=\"card right-profile\">\n        <div class=\"profile\">\n          <img src=\"../../../assets/img/marc.jpg\" alt=\"profile\"/>\n        </div>\n        <h6>CEO / CO-FOUNDER</h6>\n        <h4>{{ firstName }} {{ lastName }}</h4>\n        <p>Don't be scared of the truth because we need to restart the human foundation in truth And I love you like\n          Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>\n        <button mat-raised-button class=\"btn btn-rose btn-round\">CHANGE</button>\n      </div>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -767,6 +765,7 @@ module.exports = "<div class=\"container\">\n  <app-navbar title=\"About\"></app
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -777,12 +776,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent() {
+    function ProfileComponent(router) {
+        this.router = router;
+        this.menuItem = { path: "demo" };
     }
     ProfileComponent.prototype.ngOnInit = function () {
         this.firstName = 'Alec';
         this.lastName = 'Thompson';
+    };
+    ProfileComponent.prototype.openDemo = function () {
+        // this.router.(['/details/1029']);
     };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -790,7 +795,7 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/dashboard/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/dashboard/profile/profile.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
