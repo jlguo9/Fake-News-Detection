@@ -31,6 +31,7 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressBarModule,
     HttpClientModule
   ],
-  providers: [SettingsService],
+  providers: [SettingsService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

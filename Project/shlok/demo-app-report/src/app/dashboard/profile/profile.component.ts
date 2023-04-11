@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   firstName: string;
   lastName: string;
-  constructor() { }
+  menuItem = {path:"demo"}
+
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit() {
     this.firstName = 'Alec';
     this.lastName = 'Thompson';
+  }
+
+  openDemo(){
+    // this.router.(['/details/1029']);
   }
 
 
