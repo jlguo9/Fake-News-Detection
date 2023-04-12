@@ -232,12 +232,11 @@ def initializeModel():
     # If input is a list of text strings, output will be a 2D list with each element being a tuple of probabilities described above
     
     # EXAMPLE:
-    text1 = ["Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing",
-        "WATCH: George W. Bush Calls Out Trump For Supporting White Supremacy",
-        "U.S. lawmakers question businessman at 2016 Trump Tower meeting: sources",
-        "Trump administration issues new rules on U.S. visa waivers"
+    text1 = ["If you look at states that are right to work, they constantly do not have budget deficits and they have very good business climates.",
+        "Water rates in Manila, Philippines, were raised up to 845 percent when a subsidiary of the World Bank became a partial owner.",
+        "Since 2000, nearly 12 million Americans have slipped out of the middle class and into poverty."
     ]
-    text2 = "Donald Trump Sends Out Embarrassing New Year’s Eve Message; This is Disturbing"
+    text2 = "If you look at states that are right to work, they constantly do not have budget deficits and they have very good business climates."
     print(bert_detector(text1))
     print(bert_detector(text2))
     print(gpt2_detector(text1))
