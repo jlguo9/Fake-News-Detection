@@ -1,3 +1,0 @@
-## Data Integration
-
-data_integration.ipynb merges several cleaned dataset together to form a data.csv file which can be used by the models. It takes buzzfeed_data.csv, liar_data.csv, pheme_data.csv, Kaggle_Fake.csv, Kaggle_True.csv as input and gives data.csv as output. To run it, put it under the same folder of the above csv files first (examples can be find in cleaned_dataset.zip), and click run all.

@@ -16,7 +16,7 @@ def check_truthfulness(prompt):
     return response.choices[0].text.strip()
 
 # Load data from fake_news_data.csv
-data = pd.read_csv("fake_news_data.csv")
+data = pd.read_csv("news_data.csv")
 
 labeled_data = []
 for index, row in data.iterrows():
