@@ -9,10 +9,12 @@ Running Instruction Links to different parts:
 - [Data Preprocessing](https://github.sfu.ca/sna101/3_datamen_CMPT_733/tree/main/Project/data_preprocessing)
 - [Models](https://github.sfu.ca/sna101/3_datamen_CMPT_733/tree/main/Project/model)
 - [Model Analysis](https://github.sfu.ca/sna101/3_datamen_CMPT_733/tree/main/Project/Explain)
-
+- [Live Data](https://github.sfu.ca/sna101/3_datamen_CMPT_733/blob/main/Project/web_apps/liveData/)
 
 
 Youtube Video Link: [https://youtu.be/tWpCKzoEv_g](https://youtu.be/tWpCKzoEv_g)
+
+Web Frontend URL: http://35.208.233.163:8000/
 
 Team Members: 
 - Song Lin
