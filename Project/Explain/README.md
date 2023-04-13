@@ -1,4 +1,4 @@
-#Model Analysis
+# Model Analysis
 
 This repository contains the model prediction files and a notebook for analyzing models using SHAP and LIME.
 
@@ -11,7 +11,7 @@ This repository contains the model prediction files and a notebook for analyzing
 	│   └── lstm_pred.csv                # LSTM model predictions
 	└── shap_lime_analyze.ipynb          # Notebook for model analysis and evaluation using SHAP and LIME
 
-#Usage
+# Usage
 
 1. Ensure that you have the necessary model predictions in the pre folder.
 1. Open the shap_lime_analyze.ipynb notebook in a Jupyter environment.
