@@ -14,6 +14,8 @@ Running Instruction Links to different parts:
 
 Youtube Video Link: [https://youtu.be/tWpCKzoEv_g](https://youtu.be/tWpCKzoEv_g)
 
+Web Frontend URL: http://35.208.233.163:8000/
+
 Team Members: 
 - Song Lin
 - Shlok Nangia
