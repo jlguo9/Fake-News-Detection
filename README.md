@@ -10,7 +10,7 @@ Blog Medium Article: [Streamlining Data Manipulation with the power of Command L
 
 Report Medium Article: [The Truth Behind Fake News: Tools and Techniques for Detection](https://medium.com/@shloknangia/the-truth-behind-fake-news-tools-and-techniques-for-detection-badd76b61a7c)
 
-Demo Url: [http://35.208.233.163:8000](http://35.208.233.163:8000)
+Demo Url (Expired): [http://35.208.233.163:8000](http://35.208.233.163:8000)
 
 
 Team Members:
